@@ -14,6 +14,8 @@ func DiskUsageJob(l *zerolog.Logger, c *config.Config, b *bot.Bot) func() {
 	return func() {
 		logger := l.With().Str("type", "DiskUsageJob").Logger()
 
+		logger.Debug().Msg("Starting")
+
 		path := "/host" + c.CronDiskUsageJobPath
 
 		cmd := exec.Command("sh", "-c", "df -h "+path)
@@ -40,6 +42,8 @@ func DiskUsageJob(l *zerolog.Logger, c *config.Config, b *bot.Bot) func() {
 					}
 
 					b.SendMessage(formatDiskUsage(used, avail, usageStr, percent))
+
+					logger.Debug().Msg("Finished")
 					return
 				}
 			}
