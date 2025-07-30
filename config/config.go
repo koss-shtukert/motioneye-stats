@@ -9,8 +9,6 @@ import (
 type Config struct {
 	Environment              string `mapstructure:"APP_ENV"`
 	LogLevel                 string `mapstructure:"LOG_LEVEL"`
-	ServerHost               string `mapstructure:"SERVER_HOST"`
-	ServerPort               string `mapstructure:"SERVER_PORT"`
 	CronRunDiskUsageJob      bool   `mapstructure:"CRON_RUN_DISK_USAGE_JOB"`
 	CronDiskUsageJobPath     string `mapstructure:"CRON_DISK_USAGE_JOB_PATH"`
 	CronDiskUsageJobInterval string `mapstructure:"CRON_DISK_USAGE_JOB_INTERVAL"`
@@ -44,8 +42,6 @@ func Load(path string) (*Config, error) {
 	required := map[string]string{
 		"APP_ENV":       cfg.Environment,
 		"LOG_LEVEL":     cfg.LogLevel,
-		"SERVER_HOST":   cfg.ServerHost,
-		"SERVER_PORT":   cfg.ServerPort,
 		"TGBOT_API_KEY": cfg.TgBotApiKey,
 		"TGBOT_CHAT_ID": cfg.TgBotChatId,
 	}
