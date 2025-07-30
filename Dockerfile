@@ -15,5 +15,4 @@ WORKDIR /app
 COPY --from=builder /app/app .
 COPY .env .
 
-EXPOSE 1324
 ENTRYPOINT ["./app"]
