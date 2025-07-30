@@ -1,0 +1,13 @@
+version: '3.9'
+
+services:
+  motioneye-stats:
+    container_name: motioneye-stats
+    build: .
+    ports:
+      - "1324:1324"
+    env_file:
+      - .env
+    restart: unless-stopped
+    volumes:
+      - /:/host:ro
